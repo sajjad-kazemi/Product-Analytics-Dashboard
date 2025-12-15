@@ -1,15 +1,19 @@
-import { Component } from '@angular/core';
+import { Component, signal } from "@angular/core";
 
 @Component({
-  selector: 'app-root',
+  selector: "app-root",
   template: `
-    <h1>Welcome to {{title}}!</h1>
-
-    <router-outlet />
+    <div class="min-h-screen flex flex-col">
+      <app-header></app-header>
+      <app-sidenav class="flex-1 h-full block">
+        <router-outlet />
+      </app-sidenav>
+      <app-footer></app-footer>
+    </div>
   `,
   standalone: false,
-  styles: []
+  styles: [],
 })
 export class App {
-  protected title = 'Product-Analytics-Dashboard';
+  protected title = "Product-Analytics-Dashboard";
 }
