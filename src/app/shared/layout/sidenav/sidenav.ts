@@ -1,17 +1,32 @@
-import { Component, signal } from "@angular/core";
+import { Component, inject, signal } from "@angular/core";
+import { DashboardStore } from "../../store/dashboard-store";
 
 @Component({
   selector: "app-sidenav",
   standalone: false,
   template: `
     <mat-sidenav-container class="h-full">
-      <mat-sidenav [opened]="sidenavOpen()" mode="side" class="max-w-[15%]">
-        <mat-list>
+      <mat-sidenav [opened]="store.sidenavOpen()" mode="side" class="max-w-[15%] rounded-md">
+        <mat-list class="h-[100%] rounded-md shadow-[inset_0_0_5px_0_#a0a0a0ff] bg-[#ddd] capitalize [& *]:line-clamp-2">
           <mat-list-item>
-            <button matButton="tonal" routerLink="/products" class="w-full">products</button>
+            <a routerLink="/introduction" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2 mt-2">
+              introduction
+            </a>
           </mat-list-item>
           <mat-list-item>
-            <button matButton="tonal" routerLink="/not-found" class="w-full">not found</button>
+            <a routerLink="/products" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2">
+              products
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a routerLink="/test-product" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2">
+              test product
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a routerLink="/customer-management" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2">
+              manage custommers
+            </a>
           </mat-list-item>
         </mat-list>
       </mat-sidenav>
@@ -25,5 +40,5 @@ import { Component, signal } from "@angular/core";
   styles: ``,
 })
 export class Sidenav {
-  sidenavOpen = signal(true);
+  store = inject(DashboardStore);
 }

@@ -8,6 +8,8 @@ import CoreModule from './core/core-module';
 import SharedModule from './shared/shared-module';
 import { MatSidenav, MatSidenavContainer, MatSidenavContent } from "@angular/material/sidenav";
 import { MatAnchor } from "@angular/material/button";
+import { provideHttpClient, withInterceptors } from '@angular/common/http';
+import { urlModifierInterceptor } from './core/interceptors/url-modifier-interceptor';
 
 @NgModule({
   declarations: [
@@ -19,11 +21,13 @@ import { MatAnchor } from "@angular/material/button";
     FeatureModule,
     CoreModule,
     SharedModule,
-    MatAnchor
 ],
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZonelessChangeDetection(),
+    provideHttpClient(
+      withInterceptors([urlModifierInterceptor])
+    )
   ],
   bootstrap: [App]
 })

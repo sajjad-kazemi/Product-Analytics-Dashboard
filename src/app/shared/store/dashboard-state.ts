@@ -1,11 +1,12 @@
-import { Product } from "../models/products";
+import { Product, ProductsFilter } from "../models/products";
 
 export type DashboardState = {
-    sidebarOpen:boolean;
-    products:Product[];
-} 
+    sidenavOpen:boolean;
+    productsFilter:ProductsFilter
+}
+
 
 export const InitialState:DashboardState = {
-    sidebarOpen:true,
-    products:[]
+    sidenavOpen:false,
+    productsFilter:{} as ProductsFilter
 }

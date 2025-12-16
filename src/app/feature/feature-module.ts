@@ -6,9 +6,11 @@ import { FeatureRoutingModule } from "./feature-routing-module";
 import { MatSidenavModule } from "@angular/material/sidenav";
 import Products from "./products/products";
 import NotFound from "./not-found/not-found";
+import { ProductsService } from "./services/products-service";
 
 @NgModule({
   declarations: [Products, NotFound],
   imports: [CommonModule, FeatureRoutingModule, MatIconModule, MatButtonModule],
+  providers: [ProductsService]
 })
 export default class FeatureModule {}
