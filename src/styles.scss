@@ -31,3 +31,13 @@ body {
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.datatable-row-wrapper .datatable-body-row.active>div{
+  background:rgb(189, 189, 189) !important
+}
+
+// to remove the extra border of mat-form-field on focus
+.mdc-notched-outline__notch {
+  border-right: none !important;
+}

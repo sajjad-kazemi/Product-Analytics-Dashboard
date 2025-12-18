@@ -1,6 +1,11 @@
 export type Product = {
   id: number;
-  name: string;
+  title: string;
+  description:string;
+  category:string;
+  price:number;
+  rating:number;
+  stock:number;
 };
 
 export type ProductsFilter = {
@@ -12,9 +17,13 @@ export type ProductsFilter = {
     order:string;
 };
 
-export interface PagedProducts {
-  items: Product[];
+export interface ProductsResponse {
+  products: Product[];
   total: number;
-  pageNumber: number;
-  pageSize: number;
+}
+
+export interface Category {
+  slug:string;
+  name:string;
+  url:string;
 }

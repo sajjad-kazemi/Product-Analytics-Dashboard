@@ -5,7 +5,7 @@ import { DashboardStore } from '../../store/dashboard-store';
   selector: 'app-header',
   standalone: false,
   template: `
-    <mat-toolbar class="w-full shadow-sm py-2">
+    <mat-toolbar class="w-full py-2 border border-gray-300">
       <div class="max-w-[1300px] mx-auto w-full flex items-center justify-between">
         <span class="flex items-center font-bold">
           <button matIconButton (click)="toggleSidenav()"><mat-icon>{{store.sidenavOpen() ? "close" : "menu"}}</mat-icon></button>

@@ -7,7 +7,7 @@ import { DashboardStore } from "../../store/dashboard-store";
   template: `
     <mat-sidenav-container class="h-full">
       <mat-sidenav [opened]="store.sidenavOpen()" mode="side" class="max-w-[15%] rounded-md">
-        <mat-list class="h-[100%] rounded-md shadow-[inset_0_0_5px_0_#a0a0a0ff] bg-[#ddd] capitalize [& *]:line-clamp-2">
+        <mat-list class="h-[100%] rounded-md bg-[#ddd] capitalize [& *]:line-clamp-2">
           <mat-list-item>
             <a routerLink="/introduction" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2 mt-2">
               introduction

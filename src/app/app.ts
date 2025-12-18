@@ -6,7 +6,9 @@ import { Component, signal } from "@angular/core";
     <div class="min-h-screen flex flex-col">
       <app-header></app-header>
       <app-sidenav class="flex-1 h-full block">
-        <router-outlet />
+        <main class="px-[10%] my-6">
+          <router-outlet />
+        </main>
       </app-sidenav>
       <app-footer></app-footer>
     </div>
