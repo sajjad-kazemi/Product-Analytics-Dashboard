@@ -1,14 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import Products from './products/products';
-import NotFound from './not-found/not-found';
-import { ProductDetails } from './products/product-details/product-details';
+import Products from './pages/products/products';
+import NotFound from './pages/not-found/not-found';
+import { ProductDetails } from './pages/product-details/product-details';
+import { Introduction } from './pages/introduction/introduction';
 
 const routes: Routes = [
   {
     path:'',
-    redirectTo:'products',
+    redirectTo:'introduction',
     pathMatch:'full'
+  },
+  {
+    path:'introduction',
+    component:Introduction
   },
   {
     path:'not-found',

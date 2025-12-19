@@ -28,6 +28,21 @@ import { DashboardStore } from "../../store/dashboard-store";
               manage custommers
             </a>
           </mat-list-item>
+          <mat-list-item>
+            <a routerLink="/customer-management" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2">
+              manage orders
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a routerLink="/customer-management" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2">
+              users
+            </a>
+          </mat-list-item>
+          <mat-list-item>
+            <a routerLink="/customer-management" routerLinkActive="font-bold" class="w-full text-fg-brand bg-gray-300 block rounded-xl p-2">
+              profile
+            </a>
+          </mat-list-item>
         </mat-list>
       </mat-sidenav>
       <mat-sidenav-content class="min-h-[70vh]">

@@ -14,6 +14,7 @@ import {
   MatDrawer,
 } from "@angular/material/sidenav";
 import { MatListModule } from "@angular/material/list";
+import {MatMenuModule} from "@angular/material/menu"
 
 @NgModule({
   declarations: [Header, Footer, Sidenav],
@@ -27,6 +28,7 @@ import { MatListModule } from "@angular/material/list";
     MatSidenavContainer,
     MatSidenav,
     MatListModule,
+    MatMenuModule,
   ],
   exports: [Header, Footer, Sidenav],
 })

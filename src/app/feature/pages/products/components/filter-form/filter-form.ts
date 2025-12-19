@@ -1,15 +1,19 @@
 import { Component, inject, OnInit, output } from "@angular/core";
-import { DashboardStore } from "../../../../shared/store/dashboard-store";
+import { DashboardStore } from "../../../../../shared/store/dashboard-store";
 import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
 import { FilterFormGroup } from "../../models/filter-form";
-import { ProductsService } from "../../../services/products-service";
+import { ProductsService } from "../../../../services/products-service";
 
 @Component({
   selector: "app-filter-form",
   standalone: false,
   template: `
     <div class="w-full">
-      <form [formGroup]="filterForm" (submit)="submitForm.emit(filterForm.value)" class="flex flex-row justify-center align-baseline gap-3">
+      <form
+        [formGroup]="filterForm"
+        (submit)="search()"
+        class="flex flex-row justify-center align-baseline gap-3"
+      >
         <mat-form-field MatFormField appearance="outline">
           <mat-label>Search</mat-label>
           <input
@@ -33,6 +37,14 @@ import { ProductsService } from "../../../services/products-service";
         <button type="submit" matButton="filled" class="!my-auto">
           Search
         </button>
+        <button
+          type="button"
+          matButton="outlined"
+          class="!my-auto !text-gray-500"
+          (click)="resetForm()"
+        >
+          Reset
+        </button>
       </form>
     </div>
   `,
@@ -53,5 +65,14 @@ export class FilterForm implements OnInit {
     let filter = this.store.productsFilter();
     this.filterForm.controls.category.setValue(filter.category);
     this.filterForm.controls.search.setValue(filter.search);
+  }
+
+  search() {
+    this.submitForm.emit(this.filterForm.value);
+  }
+
+  resetForm() {
+    this.filterForm.reset();
+    this.search()
   }
 }

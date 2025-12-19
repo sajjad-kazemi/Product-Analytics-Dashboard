@@ -8,7 +8,7 @@ export type DashboardState = {
 };
 
 export const InitialState: DashboardState = {
-  sidenavOpen: false,
+  sidenavOpen: true,
   productsFilter: {
     pageNumber: 1,
     pageSize: 10,

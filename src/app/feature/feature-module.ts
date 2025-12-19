@@ -3,12 +3,12 @@ import { CommonModule } from "@angular/common";
 import { MatIconModule } from "@angular/material/icon";
 import { MatButtonModule } from "@angular/material/button";
 import { FeatureRoutingModule } from "./feature-routing-module";
-import Products from "./products/products";
-import NotFound from "./not-found/not-found";
+import Products from "./pages/products/products";
+import NotFound from "./pages/not-found/not-found";
 import { ProductsService } from "./services/products-service";
 import { NgxDatatableModule } from "@swimlane/ngx-datatable";
-import { ProductDetails } from "./products/product-details/product-details";
-import { FilterForm } from "./products/components/filter-form/filter-form";
+import { ProductDetails } from "./pages/product-details/product-details";
+import { FilterForm } from "./pages/products/components/filter-form/filter-form";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
@@ -22,9 +22,10 @@ import {
   provideCharts,
   withDefaultRegisterables,
 } from "ng2-charts";
+import { Introduction } from './pages/introduction/introduction';
 
 @NgModule({
-  declarations: [Products, NotFound, ProductDetails, FilterForm],
+  declarations: [NotFound, Products, ProductDetails, FilterForm, Introduction],
   imports: [
     CommonModule,
     FeatureRoutingModule,

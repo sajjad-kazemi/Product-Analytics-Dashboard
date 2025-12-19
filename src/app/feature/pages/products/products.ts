@@ -14,9 +14,9 @@ import {
   ViewChild,
 } from "@angular/core";
 import { Title } from "@angular/platform-browser";
-import { DashboardStore } from "../../shared/store/dashboard-store";
+import { DashboardStore } from "../../../shared/store/dashboard-store";
 import { TableColumn } from "@swimlane/ngx-datatable";
-import { Product, ProductsFilter } from "../../shared/models/products";
+import { Product, ProductsFilter } from "../../../shared/models/products";
 import { Router } from "@angular/router";
 
 @Component({
@@ -32,6 +32,7 @@ import { Router } from "@angular/router";
         [headerHeight]="40"
         [footerHeight]="50"
         rowHeight="auto"
+        [scrollbarH]="true"
         [loadingIndicator]="loading()"
         [externalPaging]="true"
         [externalSorting]="true"
@@ -56,7 +57,13 @@ import { Router } from "@angular/router";
           </ng-template>
         </ngx-datatable-column>
 
-        <ngx-datatable-column name="Title" prop="title"></ngx-datatable-column>
+        <ngx-datatable-column name="Title" prop="title">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            <a [routerLink]="'/products/'+row.id" class="font-medium hover:text-blue-900">
+              {{row.title}}
+            </a>
+          </ng-template>
+        </ngx-datatable-column>
         <ngx-datatable-column
           name="Category"
           prop="category"
