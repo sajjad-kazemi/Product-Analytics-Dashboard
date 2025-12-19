@@ -12,8 +12,16 @@ import { FilterForm } from "./products/components/filter-form/filter-form";
 import { ReactiveFormsModule } from "@angular/forms";
 import { MatFormFieldModule } from "@angular/material/form-field";
 import { MatInputModule } from "@angular/material/input";
-import { MatSelectModule } from "@angular/material/select"
-import { NgSelectModule } from "@ng-select/ng-select"
+import { MatSelectModule } from "@angular/material/select";
+import { MatCard } from "@angular/material/card";
+import { NgSelectModule } from "@ng-select/ng-select";
+import { MatChipsModule } from "@angular/material/chips";
+import { CarouselModule } from "ngx-owl-carousel-o";
+import {
+  BaseChartDirective,
+  provideCharts,
+  withDefaultRegisterables,
+} from "ng2-charts";
 
 @NgModule({
   declarations: [Products, NotFound, ProductDetails, FilterForm],
@@ -27,7 +35,11 @@ import { NgSelectModule } from "@ng-select/ng-select"
     MatFormFieldModule,
     MatInputModule,
     MatSelectModule,
-    NgSelectModule
+    MatCard,
+    MatChipsModule,
+    NgSelectModule,
+    CarouselModule,
+    BaseChartDirective,
   ],
   providers: [ProductsService],
 })

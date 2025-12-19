@@ -6,6 +6,11 @@ export type Product = {
   price:number;
   rating:number;
   stock:number;
+  tags:string[];
+  images:string[];
+  dimensions:{width:number,height:number,depth:number};
+  thumbnail:string;
+  weight:number;
 };
 
 export type ProductsFilter = {

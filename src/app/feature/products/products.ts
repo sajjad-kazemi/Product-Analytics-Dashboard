@@ -7,11 +7,11 @@ import {
 } from "@swimlane/ngx-datatable";
 import {
   Component,
-  computed,
   inject,
-  input,
   OnInit,
   signal,
+  TemplateRef,
+  ViewChild,
 } from "@angular/core";
 import { Title } from "@angular/platform-browser";
 import { DashboardStore } from "../../shared/store/dashboard-store";
@@ -28,7 +28,6 @@ import { Router } from "@angular/router";
       <ngx-datatable
         class="material"
         [rows]="products()"
-        [columns]="tableColumns"
         [columnMode]="ColumnMode.force"
         [headerHeight]="40"
         [footerHeight]="50"
@@ -44,8 +43,31 @@ import { Router } from "@angular/router";
         (activate)="onRowSelect($event)"
         [selectionType]="SelectionType.single"
         [offset]="store.productsFilter().pageNumber - 1"
-        
       >
+        <ngx-datatable-column name="Image" [sortable]="false" [width]="80">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            <img
+              [src]="row.thumbnail || 'no-image.png'"
+              alt="{{ row.title }}"
+              loading="lazy"
+              class="w-12 h-12 rounded object-cover"
+              (error)="onImgError($event)"
+            />
+          </ng-template>
+        </ngx-datatable-column>
+
+        <ngx-datatable-column name="Title" prop="title"></ngx-datatable-column>
+        <ngx-datatable-column
+          name="Category"
+          prop="category"
+        ></ngx-datatable-column>
+        <ngx-datatable-column name="Price" prop="price">
+          <ng-template ngx-datatable-cell-template let-row="row">
+            \${{ row.price }}
+          </ng-template>
+        </ngx-datatable-column>
+        <ngx-datatable-column name="Rating (*/5)" prop="rating"></ngx-datatable-column>
+        <ngx-datatable-column name="Stock" prop="stock"></ngx-datatable-column>
       </ngx-datatable>
     </div>
   `,
@@ -54,12 +76,14 @@ export default class Products implements OnInit {
   title = inject(Title);
   store = inject(DashboardStore);
   router = inject(Router);
+  @ViewChild("imgTpl", { static: true }) imgTpl!: TemplateRef<any>;
 
   ColumnMode = ColumnMode;
   SelectionType = SelectionType;
 
   loading = signal(false);
   tableColumns: TableColumn[] = [
+    { name: "Image", cellTemplate: this.imgTpl, width: 80, sortable: false },
     { name: "Title" },
     { name: "Category" },
     { name: "Price" },
@@ -87,14 +111,21 @@ export default class Products implements OnInit {
     }, 500);
   }
 
-  filterSubmit(event:any){
-    console.log('emit:',event)
-    this.store.setProductsFilter({search:event.search,category:event.category})
+  filterSubmit(event: any) {
+    console.log("emit:", event);
+    this.store.setProductsFilter({
+      search: event.search,
+      category: event.category,
+    });
   }
 
   onRowSelect(event: ActivateEvent<Product>) {
     if (event.type == "dblclick") {
       this.router.navigate(["/products", event.row.id]);
     }
+  }
+
+  onImgError(event: Event) {
+    (event.target as HTMLImageElement).src = "no-image.png";
   }
 }

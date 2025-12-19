@@ -40,4 +40,5 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 // to remove the extra border of mat-form-field on focus
 .mdc-notched-outline__notch {
   border-right: none !important;
+  cursor: pointer !important;
 }
