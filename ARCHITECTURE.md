@@ -46,32 +46,39 @@ The project is organized into **three main Angular modules**:
 ---
 
 ## 2. Folder Structure
+```
 src/
-├─ app/
-│ ├─ core/
-│ │ └─ interceptors/
-│ │ └─ url-identifier.interceptor.ts
-│ ├─ shared/
-│ │ ├─ layout/
-│ │ │ ├─ header/
-│ │ │ ├─ footer/
-│ │ │ └─ sidenav/
-│ │ ├─ models/
-│ │ │ └─ products.ts
-│ │ └─ store/
-│ │ ├─ dashboard-store.ts
-│ │ ├─ dashboard-state.ts
-│ │ └─ dashboard-helper.ts
-│ └─ feature/
-│ ├─ pages/
-│ │ ├─ introduction/
-│ │ ├─ products/
-│ │ │ └─ components/
-│ │ │   └─ filter-form/
-│ │ ├─ product-details/
-│ │ └─ not-found/
-│ └─ services/
-│ └─ products.service.ts
+└─ app/
+   ├─ core/
+   │  └─ interceptors/
+   │     └─ url-identifier.interceptor.ts
+   │
+   ├─ shared/
+   │  ├─ layout/
+   │  │  ├─ header/
+   │  │  ├─ footer/
+   │  │  └─ sidenav/
+   │  │
+   │  ├─ models/
+   │  │  └─ products.ts
+   │  │
+   │  └─ store/
+   │     ├─ dashboard-store.ts
+   │     ├─ dashboard-state.ts
+   │     └─ dashboard-helper.ts
+   │
+   └─ feature/
+      ├─ pages/
+      │  ├─ introduction/
+      │  ├─ products/
+      │  │  └─ components/
+      │  │     └─ filter-form/
+      │  ├─ product-details/
+      │  └─ not-found/
+      │
+      └─ services/
+         └─ products.service.ts
+```
 
 ## 3. Key Features and Patterns
 
