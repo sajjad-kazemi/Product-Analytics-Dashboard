@@ -1,5 +1,5 @@
 import { Component, inject } from "@angular/core";
-import { DashboardStore } from "../../store/dashboard-store";
+import { DashboardStore } from "../../../shared/store/dashboard-store";
 
 @Component({
   selector: "app-header",
