@@ -76,7 +76,7 @@ import { ChartConfiguration, ChartData, ChartType } from "chart.js";
                 <h5 class="text-gray-600 font-medium">Weight</h5>
                 <div class="mt-2 text-gray-800">
                   <span class="font-semibold">{{ product.weight }}</span>
-                  <span class="text-gray-500"> kg</span>
+                  <span class="text-gray-500"> gr</span>
                 </div>
               </div>
 
